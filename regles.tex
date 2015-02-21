@@ -1,0 +1,281 @@
+\documentclass[oneside,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[francais]{layout}
+\usepackage[OT1]{fontenc}
+\usepackage{listings}
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{mathtools}
+% Reglages du document
+\lstset{language=bash, frame=single, breaklines=true, basicstyle=\ttfamily, keywordstyle=\bfseries}
+\setlength{\hoffset}{-18pt}
+\setlength{\oddsidemargin}{0pt} % Marge gauche sur pages impaires
+\setlength{\evensidemargin}{9pt} % Marge gauche sur pages paires
+\setlength{\marginparwidth}{54pt} % Largeur de note dans la marge
+\setlength{\textwidth}{481pt} % Largeur de la zone de texte (17cm)
+\setlength{\voffset}{-18pt} % Bon pour DOS
+\setlength{\marginparsep}{7pt} % S\'eparation de la marge
+\setlength{\topmargin}{0pt} % Pas de marge en haut
+\setlength{\headheight}{13pt} % Haut de page
+\setlength{\headsep}{10pt} % Entre le haut de page et le texte
+\setlength{\footskip}{27pt} % Bas de page + s\'eparation
+\setlength{\textheight}{668pt} % Hauteur de la zone de texte (25cm)
+
+\begin{document}
+\title{Syst\`eme de jeu de r\^ole 2D}
+\date{}
+\maketitle
+\vspace{475pt}
+\includegraphics[scale=0.06]{./licence.png}
+\thispagestyle{empty}
+\clearpage
+\section*{L\'egal, contributions, et autres trucs}
+\subsection*{Licence}
+Si vous avez r\'eussi \`a obtenir ce document gratuitement et l\'egalement, c'est gr\^ace \`a la licence Creative Commons !
+Youhou !
+Reprenons ce que dis le site.
+
+Vous avez le droit de :
+\begin{itemize}
+\item
+  Partager : copier et redistribuer cette oeuvre par n'importe quel moyen, peu importe le format.
+\item
+  Adapter : r\'earragner, transformer, et cr\'eer \`a partir de cette oeuvre.
+\end{itemize}
+peu importe votre but, m\^eme commercial.
+
+L'ayant droit ne peut pas annuler ces libert\'es tant que vous respectez les termes de la licence.
+Qui sont :
+\begin{itemize}
+\item
+  Attribution:  Vous devez donner cr\'edit aux personnes ayant contribu\'e avant vous, fournir un lien vers la licence et indiquer si des changements ont \'et\'e faits.
+\item
+  Propagation : Si vous r\'earragnez, transformez, et cr\'eez \`a partir de ce oeuvre, vous devez distribuer votre contribution sous la m\^eme licence.
+\item
+  Rien de plus : Vous n'\^etes pas autoris\'e \`a appliquer des conditions l\'egales ou des mesures techniques qui restreindraient l\'egalement autrui \`a utiliser l'oeuvre dans les conditions d\'ecrites par la licence.
+\end{itemize}
+
+Vous trouverez tous les termes de la licence \`a l'adresse\\https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Je vous demande juste, en cas de contribution, d'ajouter votre nom (ou pseudonyme) ainsi que la date \`a laquelle vous avez contribu\'e dans la liste ci-dessous.
+
+\subsection*{Contributeurs}
+\begin{itemize}
+  \item Louis Billiet, le 21 f\'evrier 2015
+\end{itemize}
+\thispagestyle{empty}
+\clearpage
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+\section{Pr\'eambule}
+\setcounter{page}{1}
+Pourquoi un \`eni\`eme syst\`eme de jeu de r\^ole ?
+C'est tr\`es simple : je voulais faire jouer un sc\'enario qui se d\'eroulais dans dans l'univers du manga Fullmetal Alchemist, mais ne trouvais pas de syst\`eme qui me convenais.
+Chaque syst\`eme avait au moins un des probl\`emes suivant :
+\begin{itemize}
+\item
+  Les diff\'erents r\'esultats obtenable sont \'equiprobables.
+  C'est \`a dire, pour un jet o\`u l'on consid\`ere un d\'e \`a 10 faces et un modificateur de +5 associ\'e, il est aussi probable de faire un 6, qu'un 10 ou qu'un 15.
+  Soit, on a autant de chances de juste r\'eussir que de faire un exploit o\`u d'\'echouer magistralement.
+\item
+  La feuille de personnage est beaucoup trop cryptique.
+  Je n'ai pas envie de passer plus d'1h avant le d\'ebut de la partie juste pour expliquer comment lire cette feuille.
+\item
+  Chaque jets de d\'es n\'ecessite un nombre non-n\'egligeable de d\'es.
+  Et parfois, on choisis les d\'es que l'on veut garder, ce qui peut entra\^iner les joueurs \`a tergiverser.
+  Je n'aime pas l'id\'ee.
+\end{itemize}
+
+Je voulais un syst\`eme o\`u il est beaucoup plus probable d'obtenir un r\'esultat moyen qu'avoir un r\'esultat hors norme.
+Je voulais un syst\`eme facile \`a apr\'ehender, aussi bien par les joueurs confirm\'ee que par les n\'eophytes.
+Je voulais un syst\`eme privil\'egiant le roleplay \`a l'application b\^ete de r\`egles.
+
+Cependant, je n'ai pas con\c cu un syst\`eme adapt\'e \`a la ma\^itrise de campagnes.
+Ce syst\`eme n'est pas con\c cu pour g\'erer la distribution de point d'exp\'eriences ou l'\'evolution des personnages.
+Ce syst\`eme n'est con\c cu que pour faire jouer des ``one-shot''.
+Libre \`a vous si vous voulez adapter les r\`egles pour les utiliser en campagne.
+
+Pour cela, j'ai mis au point ce syst\`eme.
+\clearpage
+\section{La feuille de personnage}
+Mis \`a part les sempiternelles informations cosm\'etiques (nom et pr\'enom, \^age, traits physiques, ...), la feuille de personnage contient 5 s\'eries d'informations utiles pour appliquer les r\`egles.
+Ces informations sont :
+\begin{itemize}
+\item
+  La profession
+\item
+  Les caract\'eristiques
+\item
+  Les avantages et d\'esavantages
+\item
+  Les comp\'etences
+\item
+  L'\'equipement
+\end{itemize}
+\subsection{La profession}
+Bien que la profession puisse \^etre principalement cosm\'etique, elle permet n\'eanmoins de d\'efinir ce que personnage sais et sais faire.
+\'Etant donn\'e que ce syst\`eme n'est pas li\'e \`a un univers, il n'existe pas de r\`egles d\'efinissant les restrictions li\'ees \`a la profession.
+
+C'est donc au Ma\^itre du jeu de juger au cas par cas.
+Il sera \'evident que dans un univers m\'edi\'eval fantastique, un barbare n'aie pas de comp\'etences en enchantement.
+Par contre, savoir si, dans un univers contemporain, un \'electronicien aie des comp\'etences en informatique sera beaucoup plus subtil.
+\subsection{Les caract\'eristiques}
+Les caract\'eristiques permettent de sp\'ecifier les pr\'edisposition qu'ont les personnage par rapport aux t\^aches.
+
+Le physique intervient lorsque le personnage doit faire preuve de force ou d'endurance.
+
+Le manuel intervient lorsque le personnage doit manipuler un objet avec pr\'ecision ou doit observer.
+
+Le mental intervient lorsque le personnage r\'efl\'echis, mobilise ses connaissances ou doit faire preuve de volont\'e.
+
+Le social intervient lorsque le personage interagis avec les PNJs, que ce soit de mani\`ere active (discussion, ...) ou passive (impression, ...).
+
+Les caract\'eristiques prennent la forme d'un modificateur qui sera appliqu\'e lors d'un jet de d\'es.
+\subsection{Les avantages et d\'esavantages}
+Les avantages et les d\'esavantages sont disponibles \`a la discr\'etion du ma\^itre du jeu.
+Il en existe 3 types :
+\begin{itemize}
+\item
+  Ceux qui interagissent uniquement avec la difficult\'e des jets, les augmentant ou les diminuant d'un niveau\footnote{Le principe de difficult\'e sera couvert dans le chapitre \ref{gerer difficulte}.}.
+  Par exemple, un personnage ayant la \textit{tremblotte} verra ses jets associ\'es au manuel augmenter en difficult\'e.
+\item
+  Ceux qui interagissent uniquement avec le roleplay.
+  Ce sera donc au joueur de les faire impacter dans sa mani\`ere de jouer, et au ma\^itre du jeu de faire r\'eagir les PNJ en consc\'equence.
+  Par exemple, un personnage \textit{x\'enophobe} aura du mal \`a discuter normalement avec un personnage \'etranger.
+\item
+  Ceux qui interagissent avec l'histoire / le sc\'enario / le background.
+  Ce sera uniquement au ma\^itre du jeu de prendre en compte ceux-l\`a.
+  Heureusement, dans un sc\'enario ``one-shot'', g\'erer ce genre d'avantage / d\'esavantage est ais\'e.
+  Par exemple, un personnage ayant une \textit{dette envers la mafia} sera importun\'e pendant la partie, et ne voudra pas que les autrs joueurs d\'ecouvrent de quoi il en est.
+\end{itemize}
+\subsection{Les comp\'etences}
+Les comp\'etences d\'efinissent \`a la fois les comp\'etences th\'eoriques et pratiques du personnage.
+\`A chaque comp\'etence est associ\'ee le jet \`a effectuer et une caract\'eristique.
+Les comp\'etences disponibles d\'ependrons beaucoup de l'univers dans lequel se tiendra le sc\'enario.
+
+Il se peut que certaines actions soient \`a cheval sur deux comp\'etences.
+Dans ces cas l\`a, les deux comp\'etences seront mises \`a contribution.
+Nous y reviendrons dans le chapitre \ref{choix de la competence}.
+\clearpage
+\section{Cr\'eer un personnage}
+\subsection{Tirage des caract\'eristiques}
+Quatre jets diff\'erents sont n\'ecessaires pour d\'efinir les caract\'eristique.
+Ces jets sont :
+\begin{itemize}
+\item
+  $10 + (D6 - D4)$
+\item
+  $10 + (D8 - D6)$
+\item
+  $10 + (D8 - D6)$
+\item
+  $10 + (D10 - D8)$
+\end{itemize}
+
+L'attribution des r\'esultats doit \^etre fait avant les jets.
+Une fois les r\'esultats tir\'es, le modificateur est calcul\'ee de la mani\`ere suivante : $ modificateur = ( r\acute{e}sultat - 10 ) / 2 $.
+Ensuite, s'ajoutent les moficateurs li\'es \`a l'\^age.
+
+\begin{tabular}{| c | c | c | c | c |}
+  \hline
+  & physique & manuel & mental & social \\
+  \hline
+  enfant & $-1$ & $+1$ & $-1$ & $+1$ \\
+  \hline
+  adolescent & $+1$ & $0$ & $-1$ & $0$ \\
+  \hline
+  adulte & $+1$ & $-1$ & $0$ & $+1$ \\
+  \hline
+  ancien & $-1$ & $-1$ & $+2$ & $0$ \\
+  \hline
+  v\'en\'erable & $-1$ & $-1$ & $+2$ & $+1$ \\
+  \hline
+\end{tabular}
+\subsection{Choix des avatages et d\'esavantages}
+Le choix des avantages et d\'esavantages disponible est \`a la discretion du MJ, en fonction de l'univers, bien entendu.
+\`A chacun est attribu\'e un score entre 1 et 5.
+Pour un avantage, plus le score est haut, plus je joueur sera avantag\'e.
+Idem pour les d\'esavantages, plus le score est haut, plus le joueur sera d\'esavantag\'e.
+Une fois que les avantages et les d\'esavantages sont choisis, il faut que la somme des scores des avantages \'egale celle des d\'esavantages.
+\subsection{Calcul des comp\'etences}
+Chaque personnage a 20 points de comp\'etences.
+``D\'ebloquer'' une comp\'etence, c'est \`a dire lui attribuer le jet $ D10 - D10 $, co\^ute 1 point.
+Ensuite, il est possible d'am\'eliorer les comp\'etences d\'ej\`a d\'ebloqu\'ees, c'est \`a dire augmenter le nombre de faces du premier d\'e (12, puis 20) ou diminuer le nombre de faces du deuxi\`eme d\'e (8, puis 6, puis 4, puis 3).
+Chaque am\'eliorations co\^ute la quantit\'e de points d\'ej\`a d\'epens\'es dans la comp\'etence plus 1, sauf pour le passage de 12 \`a 20 faces.
+Dans ce cas, l'am\'elioration co\^ute la quantit\'e de points d\'ej\`a d\'epens\'es dans la comp\'etence plus 5.
+\subsection{Attribution de l'\'equipement de base}
+\'Etant donn\'e que ce syst\`eme ne d\'ecris pas de syst\`eme monnetaire, libre \`a vous de choisir ce qui vous semble raisonnable, ou utile.
+De toutes fa\c cons, beaucoups de sc\'enarios ``one-shot'' commencent par une visite \`a un intendant / magasin / d\'ep\^ot / \ldots
+\clearpage
+\section{Gestion de la difficult\'e}
+\label{gerer difficulte}
+Dans ce syst\`eme, il n'existe pas de r\'eussite critique o\`u d'\'eche critique.
+La raison de cette absence viens du fait qu'elle casse toute la courbe de probabilit\'e.
+Ce syst\`eme se base donc enti\`erement sur un syst\`eme de niveaux de r\'eussite.
+\subsection{Choix de la comp\'etence}
+\label{choix de la competence}
+Lorsqu'un joueur entreprends une action, il devra souvent faire un jet.
+\'Etant donn\'e que la liste des comp\'etences disponibles dans l'univers d\'ependra beaucoup du MJ, je lui conseille de garder une version des feuilles de personnage pour lui.
+Ensuite, le MJ choisira parmis la liste des comp\'etences du personnage celle qui semble la plus appropri\'ee.
+Si le personnage n'a aucune comp\'etence utile pour l'action entreprise, il effectuera un jet $ D10 - D10 $ associ\'e \`a une caract\'eristique et la difficult\'e sera augment\'ee d'un niveau.
+
+Il se peut que certaines actions soient \`a cheval sur deux comp\'etences.
+Dans ces cas l\`a, nous distinguerons la comp\'etence pratique de la comp\'etence th\'eorique.
+La comp\'etence pratique sera celle que le personage met en \oe uvre pour atteindre son but.
+La comp\'etence th\'eorique sera celle dont les connaissances lui permettra d'assurer la r\'eussite de l'action.
+
+Prenons un exemple pour illustrer :
+Alice veut faire exploser un pain de C4 au niveau d'un mur porteur de mani\`ere \`a faire s'\'ecrouler un batiment.
+Le joueur fera un jet de la comp\'etence pratique associ\'ee.
+Ici, un jet d'\textit{explosif}.
+Si le personnage \`a une comp\'etence th\'eorique associ\'ee (ici, \textit{architecture} ou \textit{ma\c connerie}), le MJ fera le jet associ\'e et le but sera atteint si le r\'esultat est sup\'erieur ou \'egal \`a z\'ero.
+Sinon, le but a une chance sur deux d'\^etre atteint.
+Bien entendu, cette r\`egle peut \^etre modifi\'e \`a l'aide d'un avantage \textit{chanceux} ou un d\'esavantage \textit{malchanceux}, ou si le batiment est en sc\'enarium\ldots
+\subsection{Niveaux de difficult\'e}
+\`A chaque action est associ\'e un niveau de difficult\'e.
+Le tableau suivant vous permettra d'estimer la difficult\'e des actions :
+\\ \\
+\begin{tabular}{| c | c |}
+  \hline
+  Niveau de Difficult\'e & Estimation qualitative \\
+  \hline
+  -6 & Tr\`es facile \\
+  \hline
+  -3 & Plut\^ot facile \\
+  \hline
+  0 & Requiert un peu de pratique \\
+  \hline
+  3 & Plutôt difficile \\
+  \hline
+  6 & Tr\`es difficile \\
+  \hline
+  9 & Presque impossible \\
+  \hline
+\end{tabular}
+\\ \\
+
+Ensuite, le r\'esultat du jet est compar\'e au niveau de difficult\'e.
+Si le jet est sup\'erieur ou \'egal à la difficult\'e, l'action est r\'eussite.
+Sinon, l'action \'echoue.
+\subsection{Niveaux de r\'eussite}
+Une fois le jet r\'esolu, un effet pourra s'ajouter \`a l'action en fonction de la diff\'erence en le jet et le niveau de difficult\'e, \`a raison d'un effet par tranche de 3.
+Par exemple, Si Bob saute d'un rebort haut, le niveau de difficult\'e estim\'e est de 0.
+Si Bob fais entre 0 et 2, Bob se receptionnera correctement.
+S'il fait entre -1 et -3, Bob se receptionnera mal et perdra son élan.
+Entre -4 et -6, Bob se foullera la cheville.
+Entre -7 et -9, Bob se fracturera la jambe.
+En revanche, si bob fais entre 3 et 5, il sautera particulièrement loin.
+Entre 6 et 8, il saura convertir sa vitesse de chute en vitesse de course.
+\subsection{Gestion des combats}
+\subsubsection{Initiative}
+Au d\'ebut de chaque affrontement, tous les participants au combats font un jet de $ physique + manuel + D10 - D10 $ pour d\'eterminer le score d'initiative.
+Chacun leurs tour, dans l'ordre des initiatives d\'ecroissantes, chaque participant font une action.
+Un participant peut d\'ecider de reporter son action afin de pouvoir r\'eagir une fois jusqu'\`a son prochain tour.
+\subsubsection{Blessures}
+Les blessures sont g\'er\'ees de mani\`ere qualitative.
+Le MJ doit annoncer aux joueurs les blessures que subissent les personnages au fur et a mesure du jeu.
+Il appartient au MJ de garder \`a l'esprit l'\'etat des presonnages afin de les r\'epercuter sur les niveaux de difficult\'es.
+\end{document}
