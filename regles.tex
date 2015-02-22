@@ -37,14 +37,15 @@ Si vous avez r\'eussi \`a obtenir ce document gratuitement et l\'egalement, c'es
 Youhou !
 Reprenons ce que dis le site.
 
+\fbox{%
+  \begin{minipage}{0.95\textwidth}
 Vous avez le droit de :
 \begin{itemize}
 \item
   Partager : copier et redistribuer cette oeuvre par n'importe quel moyen, peu importe le format.
 \item
-  Adapter : r\'earragner, transformer, et cr\'eer \`a partir de cette oeuvre.
+  Adapter : r\'earranger, transformer, et cr\'eer \`a partir de cette oeuvre. Peu importe votre but, m\^eme commercial.
 \end{itemize}
-peu importe votre but, m\^eme commercial.
 
 L'ayant droit ne peut pas annuler ces libert\'es tant que vous respectez les termes de la licence.
 Qui sont :
@@ -52,14 +53,16 @@ Qui sont :
 \item
   Attribution:  Vous devez donner cr\'edit aux personnes ayant contribu\'e avant vous, fournir un lien vers la licence et indiquer si des changements ont \'et\'e faits.
 \item
-  Propagation : Si vous r\'earragnez, transformez, et cr\'eez \`a partir de ce oeuvre, vous devez distribuer votre contribution sous la m\^eme licence.
+  Propagation : Si vous r\'earrangez, transformez, et/ou cr\'eez \`a partir de cette oeuvre, vous devez distribuer votre contribution sous la m\^eme licence.
 \item
   Rien de plus : Vous n'\^etes pas autoris\'e \`a appliquer des conditions l\'egales ou des mesures techniques qui restreindraient l\'egalement autrui \`a utiliser l'oeuvre dans les conditions d\'ecrites par la licence.
 \end{itemize}
+  \end{minipage}%
+}
 
 Vous trouverez tous les termes de la licence \`a l'adresse\\https://creativecommons.org/licenses/by-sa/4.0/legalcode
 
-Je vous demande juste, en cas de contribution, d'ajouter votre nom (ou pseudonyme) ainsi que la date \`a laquelle vous avez contribu\'e dans la liste ci-dessous.
+Afin de faciliter le respect de l'attribution, je demanderais aux contributeur substentiels d'ajouter leur nom (ou pseudonyme) ainsi que la date \`a laquelle ils ont contribu\'e dans la liste ci-dessous.
 
 \subsection*{Contributeurs}
 \begin{itemize}
@@ -73,32 +76,35 @@ Je vous demande juste, en cas de contribution, d'ajouter votre nom (ou pseudonym
 \section{Pr\'eambule}
 \setcounter{page}{1}
 Pourquoi un \`eni\`eme syst\`eme de jeu de r\^ole ?
-C'est tr\`es simple : je voulais faire jouer un sc\'enario qui se d\'eroulais dans dans l'univers du manga Fullmetal Alchemist, mais ne trouvais pas de syst\`eme qui me convenais.
+C'est tr\`es simple : je voulais faire jouer un sc\'enario qui se d\'eroulais dans l'univers de Fullmetal Alchemist (manga de Hiromu Arakawa), mais ne trouvais pas de syst\`eme qui me convenais.
 Chaque syst\`eme avait au moins un des probl\`emes suivant :
 \begin{itemize}
 \item
-  Les diff\'erents r\'esultats obtenable sont \'equiprobables.
+  Les diff\'erents r\'esultats obtenables sont \'equiprobables.
   C'est \`a dire, pour un jet o\`u l'on consid\`ere un d\'e \`a 10 faces et un modificateur de +5 associ\'e, il est aussi probable de faire un 6, qu'un 10 ou qu'un 15.
   Soit, on a autant de chances de juste r\'eussir que de faire un exploit o\`u d'\'echouer magistralement.
+  Les jeux qui ont ce problème sont souvent ceux o\`u les jets ne n\'ecessitent qu'un d\'e (les syst\`emes D10 comme \textit{Prophecy}, D20 comme \textit{D\&D} et D100 comme \textit{Rolemaster}).
 \item
-  La feuille de personnage est beaucoup trop cryptique.
+  La feuille de personnage est beaucoup trop cryptique et/ou trop longue.
   Je n'ai pas envie de passer plus d'1h avant le d\'ebut de la partie juste pour expliquer comment lire cette feuille.
+  Je vise ici \textit{Eclipse phase} dont la feuille de personnage utilise beaucoup de termes peu commun, mais aussi \textit{D\&D} et \textit{Legend of the 5 Rings} dont les feuilles de personnages font plusieurs pages.
 \item
   Chaque jets de d\'es n\'ecessite un nombre non-n\'egligeable de d\'es.
   Et parfois, on choisis les d\'es que l'on veut garder, ce qui peut entra\^iner les joueurs \`a tergiverser.
-  Je n'aime pas l'id\'ee.
+  J'ai vu ce principe dans les jeux \textit{Legend of the 5 Rings}, \textit{GURPS} ou encore \textit{Tunnels and Trolls}.
+  Et je n'aime pas cette id\'ee.
 \end{itemize}
 
 Je voulais un syst\`eme o\`u il est beaucoup plus probable d'obtenir un r\'esultat moyen qu'avoir un r\'esultat hors norme.
-Je voulais un syst\`eme facile \`a apr\'ehender, aussi bien par les joueurs confirm\'ee que par les n\'eophytes.
-Je voulais un syst\`eme privil\'egiant le roleplay \`a l'application b\^ete de r\`egles.
+Je voulais un syst\`eme facile \`a apr\'ehender, aussi bien par les joueurs confirm\'es que par les n\'eophytes.
+Je voulais un syst\`eme privil\'egiant le roleplay \`a l'\'etablissement d'une strat\'egie ne prenant en compte que les r\`egles.
 
 Cependant, je n'ai pas con\c cu un syst\`eme adapt\'e \`a la ma\^itrise de campagnes.
 Ce syst\`eme n'est pas con\c cu pour g\'erer la distribution de point d'exp\'eriences ou l'\'evolution des personnages.
 Ce syst\`eme n'est con\c cu que pour faire jouer des ``one-shot''.
 Libre \`a vous si vous voulez adapter les r\`egles pour les utiliser en campagne.
 
-Pour cela, j'ai mis au point ce syst\`eme.
+Pour r\'esumer, c'est dans l'optique de faire jouer des ``one-shot'' \`a des conventions que j'ai mis au point ce syst\`eme.
 \clearpage
 \section{La feuille de personnage}
 Mis \`a part les sempiternelles informations cosm\'etiques (nom et pr\'enom, \^age, traits physiques, ...), la feuille de personnage contient 5 s\'eries d'informations utiles pour appliquer les r\`egles.
