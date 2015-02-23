@@ -73,10 +73,10 @@ Afin de faciliter le respect de l'attribution, je demanderais aux contributeur s
   \item Louis Billiet, le 21 f\'evrier 2015
 \end{itemize}
 \thispagestyle{empty}
-\clearpage
+\newpage
 \tableofcontents
 \thispagestyle{empty}
-\clearpage
+\newpage
 \section{Pr\'eambule}
 \setcounter{page}{1}
 Pourquoi un \`eni\`eme syst\`eme de jeu de r\^ole ?
@@ -109,7 +109,7 @@ Ce syst\`eme n'est con\c cu que pour faire jouer des ``one-shot''.
 Libre \`a vous si vous voulez adapter les r\`egles pour les utiliser en campagne.
 
 Pour r\'esumer, c'est dans l'optique de faire jouer des ``one-shot'' \`a des conventions que j'ai mis au point ce syst\`eme.
-\clearpage
+\newpage
 \section{La feuille de personnage}
 Mis \`a part les sempiternelles informations cosm\'etiques (nom et pr\'enom, \^age, traits physiques, ...), la feuille de personnage contient 5 s\'eries d'informations utiles pour appliquer les r\`egles.
 Ces informations sont :
@@ -169,24 +169,24 @@ Les comp\'etences disponibles d\'ependrons beaucoup de l'univers dans lequel se 
 Il se peut que certaines actions soient \`a cheval sur deux comp\'etences.
 Dans ces cas l\`a, les deux comp\'etences seront mises \`a contribution.
 Nous y reviendrons dans le chapitre \ref{choix de la competence}.
-\clearpage
+\newpage
 \section{Cr\'eer un personnage}
 \subsection{Tirage des caract\'eristiques}
-Quatre jets diff\'erents sont n\'ecessaires pour d\'efinir les caract\'eristique.
+Quatre jets diff\'erents sont n\'ecessaires pour d\'efinir les caract\'eristiques.
 Ces jets sont :
 \begin{itemize}
 \item
-  $10 + (D6 - D4)$
+  $(D6 - D4)$
 \item
-  $10 + (D8 - D6)$
+  $(D8 - D6)$
 \item
-  $10 + (D8 - D6)$
+  $(D8 - D6)$
 \item
-  $10 + (D10 - D8)$
+  $(D10 - D8)$
 \end{itemize}
 
 L'attribution des r\'esultats doit \^etre fait avant les jets.
-Une fois les r\'esultats tir\'es, le modificateur est calcul\'ee de la mani\`ere suivante : $ modificateur = ( r\acute{e}sultat - 10 ) / 2 $.
+Une fois les r\'esultats tir\'es, le modificateur est calcul\'e de la mani\`ere suivante : $ modificateur = r\acute{e}sultat / 2 $.
 Ensuite, s'ajoutent les moficateurs li\'es \`a l'\^age.
 
 \begin{tabular}{| c | c | c | c | c |}
@@ -205,7 +205,7 @@ Ensuite, s'ajoutent les moficateurs li\'es \`a l'\^age.
   \hline
 \end{tabular}
 \subsection{Choix des avatages et d\'esavantages}
-Le choix des avantages et d\'esavantages disponible est \`a la discretion du ma\^itre du jeu, en fonction de l'univers, bien entendu.
+Le choix des avantages et d\'esavantages disponibles est \`a la discretion du ma\^itre du jeu (en fonction de l'univers, bien entendu).
 \`A chacun est attribu\'e un score entre 1 et 5.
 Pour un avantage, plus le score est haut, plus je joueur sera avantag\'e.
 Idem pour les d\'esavantages, plus le score est haut, plus le joueur sera d\'esavantag\'e.
@@ -214,35 +214,37 @@ Une fois que les avantages et les d\'esavantages sont choisis, il faut que la so
 Chaque personnage a 20 points de comp\'etences.
 ``D\'ebloquer'' une comp\'etence, c'est \`a dire lui attribuer le jet $ D10 - D10 $, co\^ute 1 point.
 Ensuite, il est possible d'am\'eliorer les comp\'etences d\'ej\`a d\'ebloqu\'ees, c'est \`a dire augmenter le nombre de faces du premier d\'e (12, puis 20) ou diminuer le nombre de faces du deuxi\`eme d\'e (8, puis 6, puis 4, puis 3).
-Chaque am\'eliorations co\^ute la quantit\'e de points d\'ej\`a d\'epens\'es dans la comp\'etence plus 1, sauf pour le passage de 12 \`a 20 faces.
-Dans ce cas, l'am\'elioration co\^ute la quantit\'e de points d\'ej\`a d\'epens\'es dans la comp\'etence plus 5.
+Chaque am\'elioration co\^ute la quantit\'e de points d\'ej\`a d\'epens\'ees dans la comp\'etence plus 1, sauf pour le passage de 12 \`a 20 faces.
+Dans ce cas, l'am\'elioration co\^ute la quantit\'e de points d\'ej\`a d\'epens\'e dans la comp\'etence plus 5.
 \subsection{Attribution de l'\'equipement de base}
 \'Etant donn\'e que ce syst\`eme ne d\'ecris pas de syst\`eme monnetaire, libre \`a vous de choisir ce qui vous semble raisonnable, ou utile.
-De toutes fa\c cons, beaucoups de sc\'enarios ``one-shot'' commencent par une visite \`a un intendant / magasin / d\'ep\^ot / \ldots
-\clearpage
+De toutes fa\c cons, beaucoup de sc\'enarios ``one-shot'' commencent par une visite \`a un intendant / magasin / d\'ep\^ot / \ldots
+\newpage
 \section{Gestion de la difficult\'e}
-Dans ce syst\`eme, il n'existe pas de r\'eussite critique o\`u d'\'eche critique.
-La raison de cette absence viens du fait qu'elle casse toute la courbe de probabilit\'e.
+Dans ce syst\`eme, il n'existe pas de r\'eussite critique o\`u d'\'echec critique.
+La raison de cette absence viens du fait que ce principe casse toute la courbe de probabilit\'e.
 Ce syst\`eme se base donc enti\`erement sur un syst\`eme de niveaux de r\'eussite.
 \subsection{Choix de la comp\'etence}
 \label{choix de la competence}
-Lorsqu'un joueur entreprends une action, il devra souvent faire un jet.
-\'Etant donn\'e que la liste des comp\'etences disponibles dans l'univers d\'ependra beaucoup du ma\^itre du jeu, je lui conseille de garder une version des feuilles de personnage pour lui.
-Ensuite, le ma\^itre du jeu choisira parmis la liste des comp\'etences du personnage celle qui semble la plus appropri\'ee.
+Lorsqu'un joueur entreprend une action, il devra souvent faire un jet.
+\'Etant donn\'e que la liste des comp\'etences disponibles dans l'univers d\'ependra beaucoup (voire uniquement) du ma\^itre du jeu, je lui conseille de garder une version des feuilles de personnage pour lui.
+Ensuite, le ma\^itre du jeu choisira parmi la liste des comp\'etences du personnage celle qui semble la plus appropri\'ee.
 Si le personnage n'a aucune comp\'etence utile pour l'action entreprise, il effectuera un jet $ D10 - D10 $ associ\'e \`a une caract\'eristique et la difficult\'e sera augment\'ee d'un niveau.
 
 Il se peut que certaines actions soient \`a cheval sur deux comp\'etences.
 Dans ces cas l\`a, nous distinguerons la comp\'etence pratique de la comp\'etence th\'eorique.
-La comp\'etence pratique sera celle que le personage met en \oe uvre pour atteindre son but.
+La comp\'etence pratique sera celle que le personnage met en \oe uvre pour atteindre son but.
 La comp\'etence th\'eorique sera celle dont les connaissances lui permettra d'assurer la r\'eussite de l'action.
 
 Prenons un exemple pour illustrer :
-Alice veut faire exploser un pain de C4 au niveau d'un mur porteur de mani\`ere \`a faire s'\'ecrouler un batiment.
+Alice veut faire exploser un mur porteur de mani\`ere \`a faire s'\'ecrouler un b\^atiment.
 Le joueur fera un jet de la comp\'etence pratique associ\'ee.
 Ici, un jet d'\textit{explosif}.
-Si le personnage \`a une comp\'etence th\'eorique associ\'ee (ici, \textit{architecture} ou \textit{ma\c connerie}), le ma\^itre du jeu fera le jet associ\'e et le but sera atteint si le r\'esultat est sup\'erieur ou \'egal \`a z\'ero.
+En cas de r\'eussite, le ma\^itre du jeu v\'erifie si le personnage \`a une comp\'etence th\'eorique associ\'ee (ici, \textit{architecture} ou \textit{ma\c connerie}).
+S'il en a une, le but sera atteint pour un jet positif de celui-ci.
 Sinon, le but a une chance sur deux d'\^etre atteint.
-Bien entendu, cette r\`egle peut \^etre modifi\'e \`a l'aide d'un avantage \textit{chanceux} ou un d\'esavantage \textit{malchanceux}, ou si le batiment est en sc\'enarium\ldots
+
+Bien entendu, cette r\`egle peut \^etre modifi\'e \`a l'aide d'un avantage \textit{chanceux}, un d\'esavantage \textit{malchanceux} ou d'un b\^atiment en sc\'enarium\ldots
 \subsection{Niveaux de difficult\'e}
 \label{gerer difficulte}
 \`A chaque action est associ\'e un niveau de difficult\'e.
